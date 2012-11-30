@@ -1,9 +1,11 @@
 package com.example.tests;
 
+import org.testng.annotations.Test;
+
 
 
 public class GroupCreationTests extends TestBase {
-	@org.testng.annotations.Test
+	@Test
 	public void testEmtpyGroupCreation() throws Exception {
 		openMainPage();
 		gotoGroupsPage();
@@ -17,7 +19,7 @@ public class GroupCreationTests extends TestBase {
 		returnToGroupsPage();
 	}
 	
-	@org.testng.annotations.Test
+	@Test
 	public void testNonEmtpyGroupCreation() throws Exception {
 		openMainPage();
 		gotoGroupsPage();
