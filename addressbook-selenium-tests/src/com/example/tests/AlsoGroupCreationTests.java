@@ -1,13 +1,13 @@
 package com.example.tests;
 
-import java.util.regex.Pattern;
+
 import java.util.concurrent.TimeUnit;
-import org.junit.*;
+
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -85,12 +85,6 @@ public class AlsoGroupCreationTests {
 		}
 	}
 
-	private boolean isElementPresent(By by) {
-		try {
-			driver.findElement(by);
-			return true;
-		} catch (NoSuchElementException e) {
-			return false;
-		}
+
 	}
-}
+
