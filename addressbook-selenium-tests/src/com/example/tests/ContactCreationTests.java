@@ -7,8 +7,8 @@ public class ContactCreationTests extends TestBase {
 
 	@Test
 	public void test1NonEmpryContactCreation() throws Exception {
-		openMainPage();
-		gotoAddNewPages();
+		app.openMainPage();
+		app.gotoAddNewPages();
 		ContactData contact = new ContactData();
 		contact.firstname = "firstname 1";
 		contact.lastname = "lastname 1";
@@ -21,18 +21,18 @@ public class ContactCreationTests extends TestBase {
 		contact.byear = "byear 1";
 		contact.address2 = "address2 1";
 		contact.phone2 = "phone2 1";
-		fillContactForm(contact);
-		submitContactCreation();
-		returnToHomePages();
+		app.fillContactForm(this, contact);
+		app.submitContactCreation();
+		app.returnToHomePages();
 	}
 	
 	@Test
 	public void test1EmpryContactCreation() throws Exception {
-		openMainPage();
-		gotoAddNewPages();
-		fillContactForm(new ContactData("", "", "", "", "", "", "", "", "", "", ""));
-		submitContactCreation();
-		returnToHomePages();
+		app.openMainPage();
+		app.gotoAddNewPages();
+		app.fillContactForm(this, new ContactData("", "", "", "", "", "", "", "", "", "", ""));
+		app.submitContactCreation();
+	    app.returnToHomePages();
 	}
 	}
 
