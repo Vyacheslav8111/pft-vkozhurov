@@ -1,57 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20718" started-at="2012-12-02T14:17:30Z" finished-at="2012-12-02T14:17:50Z">
+  <suite name="Default suite" duration-ms="10278" started-at="2012-12-08T19:42:19Z" finished-at="2012-12-08T19:42:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20718" started-at="2012-12-02T14:17:30Z" finished-at="2012-12-02T14:17:50Z">
-      <class name="com.example.tests.GroupCreationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.GroupCreationTests@1c9f6ece]" name="setUp" is-config="true" duration-ms="8503" started-at="2012-12-02T18:17:30Z" finished-at="2012-12-02T18:17:38Z">
+    <test name="Default test" duration-ms="10278" started-at="2012-12-08T19:42:19Z" finished-at="2012-12-08T19:42:29Z">
+      <class name="com.example.tests.ContactCreationTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.ContactCreationTests@2a6d5bb4]" name="setUp" is-config="true" duration-ms="6023" started-at="2012-12-08T23:42:19Z" finished-at="2012-12-08T23:42:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testEmtpyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@1c9f6ece]" name="testEmtpyGroupCreation" duration-ms="975" started-at="2012-12-02T18:17:43Z" finished-at="2012-12-02T18:17:44Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEmtpyGroupCreation -->
-        <test-method status="PASS" signature="testNonEmtpyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@1c9f6ece]" name="testNonEmtpyGroupCreation" duration-ms="1111" started-at="2012-12-02T18:17:44Z" finished-at="2012-12-02T18:17:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNonEmtpyGroupCreation -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.GroupCreationTests@1c9f6ece]" name="tearDown" is-config="true" duration-ms="208" started-at="2012-12-02T18:17:50Z" finished-at="2012-12-02T18:17:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.example.tests.GroupCreationTests -->
-      <class name="com.example.tests.ContactCreationTests">
-        <test-method status="PASS" signature="test1EmpryContactCreation()[pri:0, instance:com.example.tests.ContactCreationTests@3bff5c9]" name="test1EmpryContactCreation" duration-ms="2079" started-at="2012-12-02T18:17:38Z" finished-at="2012-12-02T18:17:40Z">
+        <test-method status="PASS" signature="test1EmpryContactCreation()[pri:0, instance:com.example.tests.ContactCreationTests@2a6d5bb4]" name="test1EmpryContactCreation" duration-ms="1955" started-at="2012-12-08T23:42:25Z" finished-at="2012-12-08T23:42:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1EmpryContactCreation -->
-        <test-method status="PASS" signature="test1NonEmpryContactCreation()[pri:0, instance:com.example.tests.ContactCreationTests@3bff5c9]" name="test1NonEmpryContactCreation" duration-ms="2121" started-at="2012-12-02T18:17:40Z" finished-at="2012-12-02T18:17:43Z">
+        <test-method status="PASS" signature="test1NonEmpryContactCreation()[pri:0, instance:com.example.tests.ContactCreationTests@2a6d5bb4]" name="test1NonEmpryContactCreation" duration-ms="2037" started-at="2012-12-08T23:42:27Z" finished-at="2012-12-08T23:42:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1NonEmpryContactCreation -->
-      </class> <!-- com.example.tests.ContactCreationTests -->
-      <class name="com.example.tests.AlsoGroupCreationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.AlsoGroupCreationTests@28325087]" name="setUp" is-config="true" duration-ms="2867" started-at="2012-12-02T18:17:45Z" finished-at="2012-12-02T18:17:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testEmtpyGroupCreation()[pri:0, instance:com.example.tests.AlsoGroupCreationTests@28325087]" name="testEmtpyGroupCreation" duration-ms="1281" started-at="2012-12-02T18:17:48Z" finished-at="2012-12-02T18:17:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEmtpyGroupCreation -->
-        <test-method status="PASS" signature="testNonEmtpyGroupCreation()[pri:0, instance:com.example.tests.AlsoGroupCreationTests@28325087]" name="testNonEmtpyGroupCreation" duration-ms="1086" started-at="2012-12-02T18:17:49Z" finished-at="2012-12-02T18:17:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNonEmtpyGroupCreation -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.AlsoGroupCreationTests@28325087]" name="tearDown" is-config="true" duration-ms="390" started-at="2012-12-02T18:17:50Z" finished-at="2012-12-02T18:17:50Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.ContactCreationTests@2a6d5bb4]" name="tearDown" is-config="true" duration-ms="248" started-at="2012-12-08T23:42:29Z" finished-at="2012-12-08T23:42:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.example.tests.AlsoGroupCreationTests -->
+      </class> <!-- com.example.tests.ContactCreationTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

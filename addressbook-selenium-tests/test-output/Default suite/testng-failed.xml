@@ -3,17 +3,15 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.example.tests.AlsoGroupCreationTests">
+      <class name="com.example.tests.TestBase">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.example.tests.AlsoGroupCreationTests -->
+      </class> <!-- com.example.tests.TestBase -->
       <class name="com.example.tests.ContactCreationTests">
         <methods>
           <include name="test1NonEmpryContactCreation"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
           <include name="test1EmpryContactCreation"/>
         </methods>
       </class> <!-- com.example.tests.ContactCreationTests -->
@@ -23,6 +21,12 @@
           <include name="testNonEmtpyGroupCreation"/>
         </methods>
       </class> <!-- com.example.tests.GroupCreationTests -->
+      <class name="com.example.tests.AlsoGroupCreationTests">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.example.tests.AlsoGroupCreationTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
