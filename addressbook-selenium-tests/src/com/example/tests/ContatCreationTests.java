@@ -8,7 +8,7 @@ public class ContatCreationTests extends TestBase{
 	@Test
 	public void testNonEmptyContactCreation() throws Exception {
 		app.openMainPage();
-		app.openHomePage();
+		app.openHomePage(); 
 		app.initNewContactCreation();
 		ContactData contact = new ContactData();
 		contact.firstname = "firstname 1";
@@ -22,6 +22,7 @@ public class ContatCreationTests extends TestBase{
 		contact.birthyear = "birthyear 1";
 		contact.secondary_address = "secondary_address 1";
 		contact.secondary_phone = "secondary_phone";
+		app.fillContactForm(this, contact);
 		app.submitContactCreation();
 		app.returnToHomePage();
 	}
