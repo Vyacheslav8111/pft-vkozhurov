@@ -9,11 +9,11 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	public void openMainPage() {
-		manager.driver.get(manager.baseUrl + "/addressbookv4.1.4/");
+		driver.get(manager.baseUrl + "/addressbookv4.1.4/");
 	}
 
 	public void gotoGroupsPage() {
-		manager.driver.findElement(By.linkText("groups")).click(); /* обращение к manager вместо ApplicationManager сделано для того,
+		driver.findElement(By.linkText("groups")).click(); /* обращение к manager вместо ApplicationManager сделано для того,
 		чтобы ссылки public static WebDriver driver;
 	public static String baseUrl;
 	private static StringBuffer verificationErrors = new StringBuffer() в ApplicationManager небыли "static" (для независимой работы драйверов)  */

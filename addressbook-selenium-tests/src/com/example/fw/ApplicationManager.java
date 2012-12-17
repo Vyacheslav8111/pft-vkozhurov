@@ -1,6 +1,5 @@
 package com.example.fw;
 
-import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class ApplicationManager {
 	public  WebDriver driver;
 	public  String baseUrl;
-	private  StringBuffer verificationErrors = new StringBuffer();
 	
 	public NavigationHelper navigationHelper; /*  для переноса в них методов делается ссылка "public NavigationHelper navigationHelper"; для 
 	каждого метода своя*/
@@ -27,16 +25,7 @@ public class ApplicationManager {
 	}
 	public void stop() {
 		driver.quit();
-		String verificationErrorString = verificationErrors.toString();
-		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
 		}
 		
 	}
 
-	
-
-
-	
-
-}
