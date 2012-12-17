@@ -11,7 +11,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.example.tests.ContactData;
-import com.example.tests.GroupData;
 import com.example.tests.TestBase;
 
 public class ApplicationManager {
@@ -19,7 +18,11 @@ public class ApplicationManager {
 	public static String baseUrl;
 	private static StringBuffer verificationErrors = new StringBuffer();
 	
-	public NavigationHelper navigationHelper;;
+	public NavigationHelper navigationHelper; /*  для переноса в них методов делается ссылка "public NavigationHelper navigationHelper"; для 
+	каждого метода своя*/
+	
+	public GroupHelper groupHelper;
+	
 	
 	public ApplicationManager() {
 		driver = new FirefoxDriver();
@@ -33,18 +36,6 @@ public class ApplicationManager {
 			fail(verificationErrorString);
 		}
 		
-	}
-
-	public void returnToGroupsPage() {
-		driver.findElement(By.linkText("group page")).click();
-	}
-
-	public void submitGroupCreation() {
-		driver.findElement(By.name("submit")).click();
-	}
-
-	public void initGroupCreation() {
-		driver.findElement(By.name("new")).click();
 	}
 
 	public boolean isElementPresent(By by) {
@@ -93,15 +84,6 @@ public class ApplicationManager {
 
 	public void initNewContactCreation() {
 		driver.findElement(By.linkText("add new")).click();
-	}
-
-	public void fillGroupForm(TestBase testBase, GroupData group) {
-		driver.findElement(By.name("group_name")).clear();
-		driver.findElement(By.name("group_name")).sendKeys(group.name);
-		driver.findElement(By.name("group_header")).clear();
-		driver.findElement(By.name("group_header")).sendKeys(group.header);
-		driver.findElement(By.name("group_footer")).clear();
-		driver.findElement(By.name("group_footer")).sendKeys(group.footer);
 	}
 
 	public void openHomePage() {
