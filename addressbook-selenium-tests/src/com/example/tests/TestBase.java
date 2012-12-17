@@ -14,7 +14,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
+import com.example.fw.ApplicationManager;
+
 public class TestBase {
+	
+	protected/*для доступа к ApplicationManager */ApplicationManager app;
 
 	private static WebDriver driver;
 	private static String baseUrl;
