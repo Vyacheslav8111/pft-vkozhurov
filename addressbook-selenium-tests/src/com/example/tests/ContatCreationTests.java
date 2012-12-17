@@ -7,7 +7,7 @@ public class ContatCreationTests extends TestBase{
 	
 	@Test
 	public void testNonEmptyContactCreation() throws Exception {
-		app.openMainPage();
+		app.navigationHelper.openMainPage();
 		app.openHomePage(); 
 		app.initNewContactCreation();
 		ContactData contact = new ContactData();
@@ -29,7 +29,7 @@ public class ContatCreationTests extends TestBase{
 
 	@Test
 	public void testEmptyContactCreation() throws Exception {
-		app.openMainPage();
+		app.navigationHelper.openMainPage();
 		app.initNewContactCreation();
 		app.fillContactForm(this, new ContactData("", "", "", "", "", "", "", "", "", "", "", "", ""));
 		app.submitContactCreation();

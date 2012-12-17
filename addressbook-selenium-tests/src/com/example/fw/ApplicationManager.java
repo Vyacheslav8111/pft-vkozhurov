@@ -18,6 +18,9 @@ public class ApplicationManager {
 	public static WebDriver driver;
 	public static String baseUrl;
 	private static StringBuffer verificationErrors = new StringBuffer();
+	
+	public NavigationHelper navigationHelper;;
+	
 	public ApplicationManager() {
 		driver = new FirefoxDriver();
 		baseUrl = "http://localhost/";
@@ -42,14 +45,6 @@ public class ApplicationManager {
 
 	public void initGroupCreation() {
 		driver.findElement(By.name("new")).click();
-	}
-
-	public void gotoGroupsPage() {
-		driver.findElement(By.linkText("groups")).click();
-	}
-
-	public void openMainPage() {
-		driver.get(baseUrl + "/addressbookv4.1.4/");
 	}
 
 	public boolean isElementPresent(By by) {
