@@ -4,16 +4,14 @@ import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class ApplicationManager {
-	public static WebDriver driver;
-	public static String baseUrl;
-	private static StringBuffer verificationErrors = new StringBuffer();
+	public  WebDriver driver;
+	public  String baseUrl;
+	private  StringBuffer verificationErrors = new StringBuffer();
 	
 	public NavigationHelper navigationHelper; /*  для переноса в них методов делается ссылка "public NavigationHelper navigationHelper"; для 
 	каждого метода своя*/
@@ -36,14 +34,7 @@ public class ApplicationManager {
 		
 	}
 
-	public boolean isElementPresent(By by) {
-		try {
-			driver.findElement(by);
-			return true;
-		} catch (NoSuchElementException e) {
-			return false;
-		}
-	}
+	
 
 
 	
