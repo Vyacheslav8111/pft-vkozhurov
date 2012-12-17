@@ -22,7 +22,7 @@ public class ContatCreationTests extends TestBase{
 		contact.birthyear = "birthyear 1";
 		contact.secondary_address = "secondary_address 1";
 		contact.secondary_phone = "secondary_phone";
-		app.getContactHelper().fillContactForm(app, this, contact);
+		app.getContactHelper().fillContactForm(contact);
 		app.getContactHelper().submitContactCreation();
 		app.getContactHelper().returnToHomePage();
 	}
@@ -31,7 +31,7 @@ public class ContatCreationTests extends TestBase{
 	public void testEmptyContactCreation() throws Exception {
 		app.getNavigationHelper().openMainPage();
 		app.getContactHelper().initNewContactCreation();
-		app.getContactHelper().fillContactForm(app, this, new ContactData("", "", "", "", "", "", "", "", "", "", "", "", ""));
+		app.getContactHelper().fillContactForm(new ContactData("", "", "", "", "", "", "", "", "", "", "", "", ""));
 		app.getContactHelper().submitContactCreation();
 		app.getContactHelper().returnToHomePage();
 	}

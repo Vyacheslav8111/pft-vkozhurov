@@ -13,11 +13,10 @@ public class ApplicationManager {
 	
 	private NavigationHelper navigationHelper; /*  для переноса в них методов делается ссылка "public NavigationHelper navigationHelper"; для 
 	каждого метода своя*/
-	
 	private GroupHelper groupHelper;
 	private ContactHelper contactHelper;
 	
-	public ApplicationManager() {
+	public  ApplicationManager() {
 		driver = new FirefoxDriver();
 		baseUrl = "http://localhost/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -54,5 +53,6 @@ public class ApplicationManager {
 		}
 		return 	contactHelper;
 		}	
+
 }
 

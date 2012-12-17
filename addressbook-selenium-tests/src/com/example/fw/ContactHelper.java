@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.example.tests.ContactData;
-import com.example.tests.TestBase;
 
 public class ContactHelper extends HelperBase {
 
@@ -16,7 +15,7 @@ public class ContactHelper extends HelperBase {
 		driver.findElement(By.linkText("add new")).click();
 	}
 
-	public void fillContactForm(ApplicationManager applicationManager, TestBase testBase, ContactData contact) {
+	public void fillContactForm(ContactData contact) {
 		driver.findElement(By.name("firstname")).clear();
 		driver.findElement(By.name("firstname")).sendKeys(contact.firstname);
 		driver.findElement(By.name("lastname")).clear();

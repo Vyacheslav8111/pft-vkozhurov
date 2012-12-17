@@ -7,7 +7,7 @@ import com.example.fw.ApplicationManager;
 
 public class TestBase {
 	
-	protected/*для доступа к ApplicationManager */ApplicationManager app;
+	static/*для доступа к ApplicationManager */ApplicationManager app;
 
 	
 	
