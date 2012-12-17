@@ -3,10 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.example.tests.GroupCreationTests">
+      <class name="com.example.tests.ContatCreationTests">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
+        </methods>
+      </class> <!-- com.example.tests.ContatCreationTests -->
+      <class name="com.example.tests.GroupCreationTests">
+        <methods>
           <include name="testNonEmptyGroupCreation"/>
           <include name="testEmptyGroupCreation"/>
         </methods>
