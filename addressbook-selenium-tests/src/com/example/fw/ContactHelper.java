@@ -43,4 +43,10 @@ public class ContactHelper extends HelperBase {
 	click(By.linkText("home"));
 	}
 
+	public void deleteContact(int index) {
+		click(By.xpath("//tr[@name = 'entry'][" + index + "]/td[7]/a/img"));
+		  click(By.name("update"));
+		
+	}
+
 }
