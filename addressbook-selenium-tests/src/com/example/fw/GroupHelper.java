@@ -29,4 +29,9 @@ public class GroupHelper extends HelperBase{
 		click(By.linkText("group page"));
 	}
 
+	public void deleteGroup(int index) {
+		click(By.xpath("//input[@name = 'selected[]'][" + index + "]"));
+	  click(By.name("delete"));
+	}
+
 }
