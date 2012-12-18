@@ -12,6 +12,8 @@ public class ContactData {
 	public String birthyear;
 	public String secondary_address;
 	public String secondary_phone;
+	public String birthDay;
+	public String birthMonth;
 
 	public ContactData() {
 		

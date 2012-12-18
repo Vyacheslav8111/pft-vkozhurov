@@ -13,10 +13,7 @@ public class NavigationHelper extends HelperBase {
 	}
 
 	public void gotoGroupsPage() {
-	driver.findElement(By.linkText("groups")).click(); /* обращение к manager вместо ApplicationManager сделано для того,
-		чтобы ссылки public static WebDriver driver;
-	public static String baseUrl;
-	private static StringBuffer verificationErrors = new StringBuffer() в ApplicationManager небыли "static" (для независимой работы драйверов)  */
+	click(By.linkText("groups")); 
 	}
 
 }
