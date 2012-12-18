@@ -22,4 +22,13 @@ public abstract class HelperBase { /* abstract - предотвращает создание объектов
 			return false;
 		}
 	}
+
+	protected void type(By locator, String text) {
+		driver.findElement(locator).clear();
+		driver.findElement(locator).sendKeys(text);
+	}
+
+	protected void click(By locator) {
+		driver.findElement(locator).click();
+	}
 }
