@@ -19,7 +19,7 @@ public class ContatCreationTests extends TestBase{
 		contact.worktelephone = "worktelephone 1";
 		contact.email = "email 1";
 		contact.email_2 = "email_2 1";
-		contact.birthyear = "birthyear 1";
+		contact.birthyear = "birthyear1";
 		contact.secondary_address = "secondary_address 1";
 		contact.secondary_phone = "secondary_phone";
 		app.getContactHelper().fillContactForm(contact);

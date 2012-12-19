@@ -14,6 +14,7 @@ public class ContactData {
 	public String secondary_phone;
 	public String birthDay;
 	public String birthMonth;
+	
 
 	public ContactData() {
 		
