@@ -9,11 +9,11 @@ public class ContactData {
 	public String worktelephone;
 	public String email;
 	public String email_2;
-	public String birthyear;
 	public String secondary_address;
 	public String secondary_phone;
 	public String birthDay;
 	public String birthMonth;
+	public String birthYear;
 	
 
 	public ContactData() {
@@ -31,7 +31,7 @@ public class ContactData {
 		this.worktelephone = worktelephone;
 		this.email = email;
 		this.email_2 = email_2;
-		this.birthyear = birthyear;
+		this.birthDay = birthyear;
 		this.secondary_address = secondary_address;
 		this.secondary_phone = secondary_phone;
 	}
