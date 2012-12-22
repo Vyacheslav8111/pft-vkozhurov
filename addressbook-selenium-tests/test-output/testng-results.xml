@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="98357" started-at="2012-12-21T18:18:50Z" finished-at="2012-12-21T18:20:29Z">
+  <suite name="Default suite" duration-ms="13950" started-at="2012-12-22T16:43:57Z" finished-at="2012-12-22T16:44:11Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="98357" started-at="2012-12-21T18:18:50Z" finished-at="2012-12-21T18:20:29Z">
-      <class name="com.example.tests.GroupModificationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.GroupModificationTests@378d0a23]" name="setUp" is-config="true" duration-ms="7184" started-at="2012-12-21T22:18:50Z" finished-at="2012-12-21T22:18:58Z">
+    <test name="Default test" duration-ms="13950" started-at="2012-12-22T16:43:57Z" finished-at="2012-12-22T16:44:11Z">
+      <class name="com.example.tests.ContatCreationTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.ContatCreationTests@25c6ca49]" name="setUp" is-config="true" duration-ms="7045" started-at="2012-12-22T20:43:57Z" finished-at="2012-12-22T20:44:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="modifySomeGroup()[pri:0, instance:com.example.tests.GroupModificationTests@378d0a23]" name="modifySomeGroup" duration-ms="90916" started-at="2012-12-21T22:18:58Z" finished-at="2012-12-21T22:20:28Z">
+        <test-method status="PASS" signature="testEmptyContactCreation()[pri:0, instance:com.example.tests.ContatCreationTests@25c6ca49]" name="testEmptyContactCreation" duration-ms="2945" started-at="2012-12-22T20:44:04Z" finished-at="2012-12-22T20:44:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- modifySomeGroup -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.GroupModificationTests@378d0a23]" name="tearDown" is-config="true" duration-ms="239" started-at="2012-12-21T22:20:29Z" finished-at="2012-12-21T22:20:29Z">
+        </test-method> <!-- testEmptyContactCreation -->
+        <test-method status="PASS" signature="testNonEmptyContactCreation()[pri:0, instance:com.example.tests.ContatCreationTests@25c6ca49]" name="testNonEmptyContactCreation" duration-ms="3779" started-at="2012-12-22T20:44:07Z" finished-at="2012-12-22T20:44:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNonEmptyContactCreation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.ContatCreationTests@25c6ca49]" name="tearDown" is-config="true" duration-ms="165" started-at="2012-12-22T20:44:11Z" finished-at="2012-12-22T20:44:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.example.tests.GroupModificationTests -->
+      </class> <!-- com.example.tests.ContatCreationTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
