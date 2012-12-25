@@ -31,7 +31,7 @@ public class ContactHelper extends HelperBase {
 	         selectByIndex(By.name("bmonth"), 11); 
 	         type(By.name("byear"), contact.birthyear);
 	         if (hasGroupSelector) {
-				selectByText(By.name("ABC"), "group 1");
+				selectByText(By.name("cv"), "123");
 			} else{
 				if (driver.findElements(By.name("new_group")).size() != 0) {
 					throw new Error ("Group selector exists in contact modification form");
@@ -41,12 +41,6 @@ public class ContactHelper extends HelperBase {
 	         type(By.name("phone2"), contact.secondary_phone);
 	}
 
-
-
-	protected void selectByIndex(By locator, int index) {
-		new Select(driver.findElement(locator)).selectByIndex(index);
-	}
-	
 
 	
 	public void submitContactCreation() {
@@ -62,7 +56,7 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void deleteContact(int index) {
-		click(By.xpath("//tr[@name = 'entry'][" + index + "]/td[7]/a/img"));
+		click(By.xpath("//tr[" + index + "]/td[7]/a/img"));
 		  click(By.name("update"));
 		
 	}
@@ -76,6 +70,9 @@ public class ContactHelper extends HelperBase {
 		  click(By.name("update"));
 		
 	}
+	
+	
+	//tr[31]/td[7]/a/img
 
 	
 		
