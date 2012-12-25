@@ -25,12 +25,10 @@ public abstract class HelperBase { /* abstract - предотвращает создание объектов
 	}
 
 	protected void type(By locator, String text) {
-	  if(text != null){
-		driver.findElement(locator).clear();
-		driver.findElement(locator).sendKeys(text);  
+	 
 	  }
 		
-	}
+	
 
 	protected void click(By locator) {
 		driver.findElement(locator).click();
@@ -40,5 +38,8 @@ public abstract class HelperBase { /* abstract - предотвращает создание объектов
 		new Select(driver.findElement(locator)).selectByIndex(index);
 	}
 
+	protected void selectByText(By locator, String text) {
+		new Select(driver.findElement(locator)).selectByVisibleText(text);
+	}
 	}
 	

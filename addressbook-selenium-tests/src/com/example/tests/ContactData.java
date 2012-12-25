@@ -15,10 +15,10 @@ public class ContactData {
 	
 	
 	
+	
     public ContactData(String firstname, String lastname, String address,
             String hometelephone, String mobiletelephone, String worktelephone,
-            String email, String email_2, String birthday, String birthmonth,
-            String birthyear, String secondary_address, String secondary_phone) {
+            String email, String email_2,String birthyear, String secondary_address, String secondary_phone) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.address = address;
