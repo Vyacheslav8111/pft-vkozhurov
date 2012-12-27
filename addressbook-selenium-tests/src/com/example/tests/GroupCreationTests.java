@@ -1,7 +1,6 @@
 package com.example.tests;
 
 import static org.testng.Assert.assertEquals;
-
 import java.util.Collections;
 import java.util.List;
 import org.testng.annotations.Test;

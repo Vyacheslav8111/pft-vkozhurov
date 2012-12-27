@@ -1,9 +1,14 @@
 package com.example.fw;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
+import com.example.tests.GroupData;
+
 
 public class ContactHelper extends HelperBase {
 
@@ -19,7 +24,7 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void fillContactForm(ContactData contact, boolean hasGroupSelector) {
-		   type(By.name("firstname"), contact.firstname);
+		     type(By.name("firstname"), contact.firstname);
 	         type(By.name("lastname"), contact.lastname);
 	         type(By.name("address"), contact.address);
 	         type(By.name("home"), contact.hometelephone);
@@ -30,13 +35,13 @@ public class ContactHelper extends HelperBase {
 	         selectByIndex(By.name("bday"), 19);
 	         selectByIndex(By.name("bmonth"), 11); 
 	         type(By.name("byear"), contact.birthyear);
-	         if (hasGroupSelector) {
-				selectByText(By.name("cv"), "123");
-			} else{
-				if (driver.findElements(By.name("new_group")).size() != 0) {
-					throw new Error ("Group selector exists in contact modification form");
-				}
-			}
+	         //if (hasGroupSelector) {
+				//selectByText(By.name("cv"), "123");
+			//} else{
+				//if (driver.findElements(By.name("new_group")).size() != 0) {
+					//throw new Error ("Group selector exists in contact modification form");
+				//}
+			//}
 	         type(By.name("address2"), contact.secondary_address);
 	         type(By.name("phone2"), contact.secondary_phone);
 	}
@@ -56,13 +61,13 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void deleteContact(int index) {
-		click(By.xpath("//tr[" + index + "]/td[7]/a/img"));
+		click(By.xpath("//tr[" + (index+1) + "]/td[7]/a/img"));
 		  click(By.name("update"));
 		
 	}
 
 	public void initContactModification(int index) {
-		click(By.xpath("//tr[@name = 'entry'][" + index + "]/td[7]/a/img"));
+		click(By.xpath("//tr[@name = 'entry'][" + (index+1)   + "]/td[7]/a/img"));
 		
 	}
 
@@ -70,23 +75,40 @@ public class ContactHelper extends HelperBase {
 		  click(By.name("update"));
 		
 	}
-	
-	
-	//tr[31]/td[7]/a/img
 
-	
-		
-	
-
-	
-
-
-
-	
-
-		
-		
+	public List<ContactData> getContacts() {
+		List<ContactData> contacts = new ArrayList<ContactData>();
+		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
+		for (WebElement checkbox : checkboxes) {
+		ContactData contact = new ContactData();
+		 String title = checkbox.getAttribute("title");
+		 contact.firstname =  title.substring("select (".length(), title.length() - 1);
+		  contacts.add(contact);
+		}
+		return contacts;
 	}
+
+
+	}
+
+	
+	
+	
+
+
+	
+		
+	
+
+	
+
+
+
+	
+
+		
+		
+	
 	
 		
 	

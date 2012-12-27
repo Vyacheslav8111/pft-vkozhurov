@@ -60,7 +60,7 @@ public class GroupHelper extends HelperBase{
 	for (WebElement checkbox : checkboxes) {
 	  GroupData group = new GroupData();
 	 String title = checkbox.getAttribute("title");
-	 group.name =  title.substring("select (".length(), title.length() - ")".length());;
+	 group.name =  title.substring("select (".length(), title.length() - ")".length());
 	  groups.add(group);
 	}
 		return groups;
