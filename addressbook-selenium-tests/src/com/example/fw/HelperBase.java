@@ -39,7 +39,10 @@ public abstract class HelperBase { /* abstract - предотвращает создание объектов
 	}
 
 	protected void selectByIndex(By locator, int index) {
-		new Select(driver.findElement(locator)).selectByIndex(index);
+		if( index != 0){
+			new Select(driver.findElement(locator)).selectByIndex(index);
+		}
+		
 	}
 
 	protected void selectByText(By locator, String text) {
