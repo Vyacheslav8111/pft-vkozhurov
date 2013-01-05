@@ -62,18 +62,22 @@ public class ContactHelper extends HelperBase {
         }
 
         public void deleteContact(int index) {
-                click(By.xpath(".//td[7]"));
-                  click(By.xpath(".//form[2]/input[2]"));
+        	    selectContactByIndex(index);
+                click(By.xpath(".//form[2]/input[2]"));
                 
         }
 
+		private void selectContactByIndex(int index) {
+			click(By.xpath("//tr[@name = 'entry'][" + (index+1) + "]/td[7]/a/img"));
+		}
+
         public void initContactModification(int index) {
-                click(By.xpath(".//td[7]"));
+        	selectContactByIndex(index);
                 
         }
 
         public void submitContactModification() {
-                  click(By.xpath(".//form/input[11]"));
+            click(By.xpath(".//form/input[11]"));
                 
         }
 

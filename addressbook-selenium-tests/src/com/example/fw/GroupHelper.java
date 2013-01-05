@@ -50,11 +50,12 @@ public class GroupHelper extends HelperBase{
 	}
 
 
-
-
-	public void submitGroupModification(int index) {
+     public void submitGroupModification() {
 		 click(By.name("update"));
+		
 	}
+
+	
 
 	public List<GroupData> getGroups() {
         List<GroupData> groups = new ArrayList<GroupData>();
@@ -67,6 +68,8 @@ public class GroupHelper extends HelperBase{
 		}
 		return groups;
 	}
+
+	
 
 	
 
