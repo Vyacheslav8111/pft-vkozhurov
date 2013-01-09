@@ -20,8 +20,8 @@ public class ApplicationManager {
 		driver = new FirefoxDriver();
 		baseUrl = "http://localhost/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-		// предварительная инициализация
+		driver.get(baseUrl + "/addressbookv4.1.4/");
+	
 	
 		navigationHelper = new NavigationHelper(this);
 		groupHelper = new GroupHelper(this);
@@ -34,7 +34,7 @@ public class ApplicationManager {
 
 	// "ленивая инициализация" - методы вызываются тогда, когда они необходимы
 	
-	public NavigationHelper getNavigationHelper(){ // создаем метод, который возвращает NavigationHelper - getNavigationHelper
+	public NavigationHelper navigateTo(){ // создаем метод, который возвращает NavigationHelper - getNavigationHelper
 	if (navigationHelper == null) {
 	navigationHelper = new NavigationHelper(this);	
 	}
@@ -52,7 +52,8 @@ public class ApplicationManager {
 			contactHelper = new ContactHelper(this);	
 		}
 		return 	contactHelper;
-		}	
+		}
+		
 
 }
 

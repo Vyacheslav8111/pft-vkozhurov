@@ -1,37 +1,41 @@
 package com.example.tests;
 
+
 import static org.testng.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.example.fw.ContactHelper;
+
+
+import static com.example.fw.ContactHelper.CREATION;
+
 
 public class ContatCreationTests extends TestBase{
         
     
-	
+        
         @Test(dataProvider = "randomValidContactGenerator")
         public void testContactCreationWithValidData(ContactData contact) throws Exception {
-                app.getNavigationHelper().openMainPage();
-                app.getContactHelper().openHomePage(); 
+              
+                ContactHelper contactHelper = app.getContactHelper();
+				contactHelper.openHomePage(); 
                 
                 // save old state
-                List<ContactData> oldList = app.getContactHelper().getContacts();
+                List<ContactData> oldList = contactHelper.getContacts();
                 
                 // action
-                
-                app.getContactHelper().initNewContactCreation();
-                app.getContactHelper().fillContactForm(contact, true);
-                app.getContactHelper().submitContactCreation();
-                app.getContactHelper().returnToHomePage();
+                app.getContactHelper()
+                .initNewContactCreation()
+                .fillContactForm(contact, CREATION)
+                .submitContactCreation()
+                .returnToHomePage();
                 
               //save new state
-                List<ContactData> newList = app.getContactHelper().getContacts();
+                List<ContactData> newList = contactHelper.getContacts();
 
              //compare states
                 assertEquals(newList.size(), oldList.size() + 1);
