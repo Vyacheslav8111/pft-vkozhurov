@@ -21,9 +21,7 @@ public class ContactRemovalTests extends TestBase {
         
         // action
 		
-        app.getContactHelper()
-        .deleteContact(index)
-        .returnToHomePage();
+        app.getContactHelper().deleteContact(index);
 		
 	   //save new state
         List<ContactData> newList = app.getContactHelper().getContacts();

@@ -16,24 +16,37 @@ import com.example.tests.GroupData;
 		super(manager);
 	}
 	
+	
+	private List<GroupData> cachedGroups;
+	
+	
 	public List<GroupData> getGroups() {
-		List<GroupData> groups = new ArrayList<GroupData>();
+		if (cachedGroups == null) {
+		  rebuildCache();
+		}
+		return cachedGroups;
+		
+	}
+	
+    private void rebuildCache() {
+        List<GroupData> cachedGroups = new ArrayList<GroupData>();
 		
 		manager.navigateTo().groupsPage();
         List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
         for (WebElement checkbox : checkboxes) {
           String title = checkbox.getAttribute("title");
 		  String name =title.substring("Select (".length(), title.length() - ")".length());
-		  groups.add(new GroupData().withName(name));
+		  cachedGroups.add(new GroupData().withName(name));
 		}
-		return groups;
 	}
-    public GroupHelper createGroup(GroupData group) {
+     
+	public GroupHelper createGroup(GroupData group) {
     	manager.navigateTo().groupsPage();
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupsPage();
+        rebuildCache();
         return this;
 	}
                                                                        
@@ -42,6 +55,7 @@ import com.example.tests.GroupData;
         fillGroupForm(group);
         submitGroupModification();
         returnToGroupsPage();
+        rebuildCache();
     	return this;	
 	}
     
@@ -49,6 +63,7 @@ import com.example.tests.GroupData;
   	   selectGroupByIndex(index);
   	   submitGroupDeletion();
   	   returnToGroupsPage();
+  	   rebuildCache();
   	   return this;
    }                                                                // методы высшего уровня
   	//---------------------------------------------------------------------------------------------------------
@@ -70,6 +85,7 @@ import com.example.tests.GroupData;
 
 	public GroupHelper submitGroupCreation() {
 		click(By.name("submit"));
+		cachedGroups = null;
 		return this;
 	}
 
@@ -90,11 +106,13 @@ import com.example.tests.GroupData;
 	}
 	public GroupHelper submitGroupModification() {
 		 click(By.name("update"));
+		 cachedGroups = null;
 		 return this;
 		}
 	
 	public void submitGroupDeletion() {
 		click(By.name("delete"));
+		cachedGroups = null;
 	}
 
      

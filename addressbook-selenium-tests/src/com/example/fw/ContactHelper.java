@@ -1,6 +1,9 @@
 
 package com.example.fw;
 
+import static com.example.fw.ContactHelper.CREATION;
+import static com.example.fw.ContactHelper.MODIFICATION;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +24,65 @@ public class ContactHelper extends HelperBase {
         public ContactHelper(ApplicationManager manager) {
                 super(manager);
         }
+        
+        private List<ContactData> cachedContacts;
+        
+        public List<ContactData> getContacts() {
+        	if (cachedContacts == null) {
+        		rebuildCache();
+        	}
+        	return cachedContacts;
+        }
+        	private void rebuildCache() {
 
+    			List<ContactData> cachedContacts = new ArrayList<ContactData>();
+            	manager.getContactHelper().HomePage();
+                List<WebElement> rows = getContactRows(); 
+                for(WebElement row : rows) {
+                String firstname = getFirstNameInRow(row);
+                String lastname = getLastNameInRow(row);
+                cachedContacts.add(new ContactData()
+                .withFirstname(firstname)
+                .withLastname(lastname));
+             }
+          
+		}
+        
+  	
+
+		public ContactHelper createContact(ContactData contact) {
+        	manager.getContactHelper().HomePage();
+            initNewContactCreation();
+            fillContactForm(contact, CREATION);
+            submitContactCreation();
+            returnToHomePage();
+            rebuildCache();
+            return this;
+		}
+        public ContactHelper modifyContact(int index, ContactData contact) {
+             initContactModification(index);
+             fillContactForm(contact, MODIFICATION);
+             submitContactModification();
+             returnToHomePage();
+             rebuildCache();
+             return this;
+		}
+        
+        public ContactHelper deleteContact(int index) {
+            selectContactByIndex(index);
+            submitContactDeletion();
+            returnToHomePage();
+            rebuildCache();
+            return this;
+        }
+		
+        
+    //-------------------------------------------------------------------------------------------
+        
         public ContactHelper initNewContactCreation() {
-                click(By.linkText("add new"));
-                return this;
+        	manager.getContactHelper().HomePage();
+            click(By.linkText("add new"));
+            return this;
         }
 
         public ContactHelper fillContactForm(ContactData contact, boolean formType) {
@@ -40,7 +98,7 @@ public class ContactHelper extends HelperBase {
                  selectByIndex(By.name("bmonth"), 11); 
                  type(By.name("byear"), contact.getBirthyear());
                  if (formType == CREATION) {
-                                selectByText(By.name("new_group"), "Rob");
+                                selectByText(By.name("new_group"), "aaa");
                         } else{
                                 if (driver.findElements(By.name("new_group")).size() != 0) {
                                         throw new Error ("Group selector exists in contact modification form");
@@ -55,6 +113,7 @@ public class ContactHelper extends HelperBase {
         
         public ContactHelper submitContactCreation() {
         click(By.name("submit"));
+        cachedContacts = null;
         return this;
         }
 
@@ -63,20 +122,15 @@ public class ContactHelper extends HelperBase {
         return this;
         }
 
-        public ContactHelper openHomePage() {
+        public ContactHelper HomePage() {
         click(By.linkText("home"));
         return this;
         }
 
-        public ContactHelper deleteContact(int index) {
-                    selectContactByIndex(index);
-                click(By.xpath(".//form[2]/input[2]"));
-                return this;
-                
-        }
+      
 
-                private void selectContactByIndex(int index) {
-                        click(By.xpath("//tr[@name = 'entry'][" + (index+1) + "]/td[7]/a/img"));
+        private void selectContactByIndex(int index) {
+            click(By.xpath("//tr[@name = 'entry'][" + (index+1) + "]/td[7]/a/img"));
                 }
 
         public ContactHelper initContactModification(int index) {
@@ -87,37 +141,29 @@ public class ContactHelper extends HelperBase {
 
         public ContactHelper submitContactModification() {
             click(By.xpath(".//form/input[11]"));
-            return this;
-                
+            cachedContacts = null;
+            return this;       
         }
-
-                public List<ContactData> getContacts() {
-                        List<ContactData> contacts = new ArrayList<ContactData>();
-                        List<WebElement> rows = getContactRows(); 
-                        for(WebElement row : rows) {
-                       String firstname = getFirstNameInRow(row);
-                       String lastname = getLastNameInRow(row);
-                        contacts.add(new ContactData()
-                        .withFirstname(firstname)
-                        .withLastname(lastname));
-                        }
         
-                        return contacts;
+        public void submitContactDeletion() {
+			click(By.xpath(".//form[2]/input[2]"));
+			cachedContacts = null;
+		} 
+                        
+        private String getFirstNameInRow(WebElement row) {
+           return row.findElement(By.xpath(".//td[3]")).getText();
                 }
 
-                
-
-                private String getFirstNameInRow(WebElement row) {
-                return row.findElement(By.xpath(".//td[3]")).getText();
+        private String getLastNameInRow(WebElement row) {
+           return row.findElement(By.xpath(".//td[2]")).getText();
                 }
 
-                private String getLastNameInRow(WebElement row) {
-                return row.findElement(By.xpath(".//td[2]")).getText();
+        private List<WebElement> getContactRows() {
+           return driver.findElements(By.xpath(".//tr[@name='entry']"));
                 }
 
-                private List<WebElement> getContactRows() {
-                        return driver.findElements(By.xpath(".//tr[@name='entry']"));
-                }
+
+				
 
 				
 
