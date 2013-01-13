@@ -1,16 +1,11 @@
 
 package com.example.fw;
 
-import static com.example.fw.ContactHelper.CREATION;
-import static com.example.fw.ContactHelper.MODIFICATION;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import com.example.tests.ContactData;
+import com.example.utils.SortedListOf;
 
 
 
@@ -25,9 +20,9 @@ public class ContactHelper extends HelperBase {
                 super(manager);
         }
         
-        private List<ContactData> cachedContacts;
+        private SortedListOf<ContactData> cachedContacts;
         
-        public List<ContactData> getContacts() {
+        public SortedListOf<ContactData> getContacts() {
         	if (cachedContacts == null) {
         		rebuildCache();
         	}
@@ -35,7 +30,7 @@ public class ContactHelper extends HelperBase {
         }
         	private void rebuildCache() {
 
-    			List<ContactData> cachedContacts = new ArrayList<ContactData>();
+        		SortedListOf<ContactData> cachedContacts = new SortedListOf<ContactData>();
             	manager.getContactHelper().HomePage();
                 List<WebElement> rows = getContactRows(); 
                 for(WebElement row : rows) {
