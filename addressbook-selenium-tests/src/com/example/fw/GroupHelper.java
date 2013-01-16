@@ -27,7 +27,7 @@ import com.example.utils.SortedListOf;
 	}
 	
     private void rebuildCache() {
-    	SortedListOf<GroupData> cachedGroups = new SortedListOf<GroupData>();
+        cachedGroups = new SortedListOf<GroupData>();
 		
 		manager.navigateTo().groupsPage();
 		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));

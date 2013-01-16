@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase {
         }
         	private void rebuildCache() {
 
-        		SortedListOf<ContactData> cachedContacts = new SortedListOf<ContactData>();
+        	    cachedContacts = new SortedListOf<ContactData>();
             	manager.getContactHelper().HomePage();
                 List<WebElement> rows = getContactRows(); 
                 for(WebElement row : rows) {
