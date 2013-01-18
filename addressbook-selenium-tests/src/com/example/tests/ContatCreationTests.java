@@ -31,7 +31,7 @@ public class ContatCreationTests extends TestBase{
                 SortedListOf<ContactData> newList = contactHelper.getContacts();
 
              //compare states
-                assertThat(newList, equalTo(oldList.withAdded(contact)));
+                assertThat(newList, equalTo(oldList.withAdded(contact)));        
         }
 
      }

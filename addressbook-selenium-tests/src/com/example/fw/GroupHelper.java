@@ -83,7 +83,6 @@ import com.example.utils.SortedListOf;
 
 	public GroupHelper submitGroupCreation() {
 		click(By.name("submit"));
-		cachedGroups = null;
 		return this;
 	}
 
@@ -104,13 +103,11 @@ import com.example.utils.SortedListOf;
 	}
 	public GroupHelper submitGroupModification() {
 		 click(By.name("update"));
-		 cachedGroups = null;
 		 return this;
 		}
 	
 	public void submitGroupDeletion() {
 		click(By.name("delete"));
-		cachedGroups = null;
 	}
 
      

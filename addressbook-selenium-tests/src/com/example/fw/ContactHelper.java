@@ -31,7 +31,7 @@ public class ContactHelper extends HelperBase {
         	private void rebuildCache() {
 
         	    cachedContacts = new SortedListOf<ContactData>();
-            	manager.getContactHelper().HomePage();
+            	manager.getContactHelper().goToHomePage();
                 List<WebElement> rows = getContactRows(); 
                 for(WebElement row : rows) {
                 String firstname = getFirstNameInRow(row);
@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
   	
 
 		public ContactHelper createContact(ContactData contact) {
-        	manager.getContactHelper().HomePage();
+        	manager.getContactHelper().goToHomePage();
             initNewContactCreation();
             fillContactForm(contact, CREATION);
             submitContactCreation();
@@ -75,7 +75,7 @@ public class ContactHelper extends HelperBase {
     //-------------------------------------------------------------------------------------------
         
         public ContactHelper initNewContactCreation() {
-        	manager.getContactHelper().HomePage();
+        	manager.getContactHelper().goToHomePage();
             click(By.linkText("add new"));
             return this;
         }
@@ -108,7 +108,6 @@ public class ContactHelper extends HelperBase {
         
         public ContactHelper submitContactCreation() {
         click(By.name("submit"));
-        cachedContacts = null;
         return this;
         }
 
@@ -117,7 +116,7 @@ public class ContactHelper extends HelperBase {
         return this;
         }
 
-        public ContactHelper HomePage() {
+        public ContactHelper goToHomePage() {
         click(By.linkText("home"));
         return this;
         }
@@ -136,13 +135,11 @@ public class ContactHelper extends HelperBase {
 
         public ContactHelper submitContactModification() {
             click(By.xpath(".//form/input[11]"));
-            cachedContacts = null;
             return this;       
         }
         
         public void submitContactDeletion() {
 			click(By.xpath(".//form[2]/input[2]"));
-			cachedContacts = null;
 		} 
                         
         private String getFirstNameInRow(WebElement row) {
