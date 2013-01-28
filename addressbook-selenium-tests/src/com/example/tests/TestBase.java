@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
 import com.example.fw.ApplicationManager;
+import static com.example.tests.GroupDataGenerator.generateRandomGroups;
 
 public class TestBase {
         
@@ -30,20 +31,23 @@ public class TestBase {
 
         @DataProvider
 	    public Iterator<Object[]> randomValidGroupGenerator() {
-	      List<Object[]> list = new ArrayList<Object[]>();
-	      for (int i = 0; i < 5; i++) {
-	    	GroupData group	= new GroupData()
-	    	.withName(generateRandomString())
-	    	.withHeader(generateRandomString())
-	    	.whithFooter(generateRandomString());
-	    	list.add(new Object[] {group});
-	      }
+	    	List<GroupData> groups = generateRandomGroups(5);
+	    	List<Object[]> list = wrapGropsForDataProvider(groups);
+	    	
 	      return list.iterator();
 	    }
 	    
 	   	
 	        
-	    @DataProvider   
+	    private List<Object[]> wrapGropsForDataProvider(List<GroupData> groups) {
+	    List<Object[]> list = new ArrayList<Object[]>();
+	    for (GroupData group : groups) {
+	    	list.add(new Object[]{group});
+		}
+			return list;
+		}
+
+		@DataProvider   
 		public Iterator<Object[]> randomValidContactGenerator() {
 		      List<Object[]> list = new ArrayList<Object[]>();
 		      for (int i = 0; i < 5; i++) {
