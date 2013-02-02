@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
 import com.example.fw.ApplicationManager;
-import static com.example.tests.GroupDataGenerator.generateRandomGroups;
+
 
 public class TestBase {
         
@@ -29,17 +29,9 @@ public class TestBase {
               
 }        
 
-        @DataProvider
-	    public Iterator<Object[]> randomValidGroupGenerator() {
-	    	List<GroupData> groups = generateRandomGroups(5);
-	    	List<Object[]> list = wrapGropsForDataProvider(groups);
-	    	
-	      return list.iterator();
-	    }
+       
 	    
-	   	
-	        
-	    private List<Object[]> wrapGropsForDataProvider(List<GroupData> groups) {
+	    public static List<Object[]> wrapGropsForDataProvider(List<GroupData> groups) {
 	    List<Object[]> list = new ArrayList<Object[]>();
 	    for (GroupData group : groups) {
 	    	list.add(new Object[]{group});

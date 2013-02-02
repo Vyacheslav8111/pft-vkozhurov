@@ -1,14 +1,23 @@
 package com.example.tests;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.io.output.FileWriterWithEncoding;
+import org.bouncycastle.x509.X509StreamParser;
+
+import com.thoughtworks.xstream.XStream;
+
 public class GroupDataGenerator {
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 	  if (args.length < 3) {
 		  System.out.println("please specify parametrs: <amount of test data> <file> <format>");
 		  return;
@@ -17,6 +26,12 @@ public class GroupDataGenerator {
 	  int amount = Integer.parseInt(args[0]);
 	  File file = new File(args[1]);
 	  String format = args[2];
+	  
+	  
+	  if(file.exists()) {
+		  System.out.println("File exists, please remote it manually: " + file);
+		  return;
+	  }
 	  
 	  List<GroupData> groups = generateRandomGroups(amount);
 	  if ("csv".equals(format)) {
@@ -28,16 +43,45 @@ public class GroupDataGenerator {
 		  }
 	  }
 
-	private static void saveGroupsToXmlFile(List<GroupData> groups, File file) {
+	private static void saveGroupsToXmlFile(List<GroupData> groups, File file) throws IOException {
+	  XStream xstream = new XStream();
+	  xstream.alias("group", GroupData.class);
+	  String xml = xstream.toXML(groups);
+	  FileWriter writer = new FileWriter(file);
+	  writer.write(xml);
+	  writer.close();
+	}
+	
+	public static List<GroupData> loadGroupsFromXmlFile(File file) {
 		// TODO Auto-generated method stub
+		return null;
 		
 	}
-
-	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) {
-		// TODO Auto-generated method stub
-		
+	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) throws IOException {
+	   	FileWriter writer = new FileWriter(file);
+	   	for (GroupData group : groups) {
+	   	    writer.write(group.getName() + "," + group.getHeader() + "," + group.getFooter() + ",!" + "\n"); 	
+		}
+	   	writer.close();
 	}
-
+	
+	public static List<GroupData> LoadGroupsFromCsvFile(File file) throws IOException{
+		List<GroupData> list = new ArrayList<GroupData>();
+	    FileReader reader = new FileReader(file);
+	    BufferedReader bufferedReader = new BufferedReader(reader);
+	    String line = bufferedReader.readLine();
+	    while (line != null) {
+	      String[] part = line.split(",");
+	      GroupData group = new GroupData()
+	      .withName(part[0])
+	      .withHeader(part[1])
+	      .whithFooter(part[2]);
+	      list.add(group);
+	      line = bufferedReader.readLine();
+		}
+	    bufferedReader.close();
+		return list;
+	}
 	public static List<GroupData> generateRandomGroups(int amount) {
 		List<GroupData> list = new ArrayList<GroupData>();
 	      for (int i = 0; i < amount; i++) {
