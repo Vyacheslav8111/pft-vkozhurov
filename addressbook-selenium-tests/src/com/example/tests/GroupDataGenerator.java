@@ -53,8 +53,9 @@ public class GroupDataGenerator {
 	}
 	
 	public static List<GroupData> loadGroupsFromXmlFile(File file) {
-		// TODO Auto-generated method stub
-		return null;
+		XStream xstream = new XStream();
+		xstream.alias("group", GroupData.class);
+		return (List<GroupData>)xstream.fromXML(file);
 		
 	}
 	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) throws IOException {
