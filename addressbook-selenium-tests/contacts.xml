@@ -1,0 +1,44 @@
+<list>
+  <contact>
+    <firstname></firstname>
+    <lastname></lastname>
+    <address></address>
+    <hometelephone>test-1291158068</hometelephone>
+    <mobiletelephone>test1530797554</mobiletelephone>
+    <worktelephone>test-1187775151</worktelephone>
+    <email></email>
+    <email__2>test1107513736</email__2>
+    <secondary__address>test-807789691</secondary__address>
+    <secondary__phone></secondary__phone>
+    <birthyear>test1233999660</birthyear>
+  </contact>
+  
+  <contact>
+    <firstname>test920058453</firstname>
+    <lastname>test1928530612</lastname>
+    <address>test1346283542</address>
+    <hometelephone>test1446082902</hometelephone>
+    <mobiletelephone>test505967806</mobiletelephone>
+    <worktelephone>test1933437612</worktelephone>
+    <email>test411252032</email>
+    <email__2>test-1401779831</email__2>
+    <secondary__address>test-1860543947</secondary__address>
+    <secondary__phone>test-2012846297</secondary__phone>
+    <birthyear>test-1987024079</birthyear>
+  </contact>
+  
+  <contact>
+    <firstname>test-1344402850</firstname>
+    <lastname>test1196033010</lastname>
+    <address>test1067073790</address>
+    <hometelephone></hometelephone>
+    <mobiletelephone>test-1557596412</mobiletelephone>
+    <worktelephone>test2137995771</worktelephone>
+    <email>test-672326450</email>
+    <email__2>test323540197</email__2>
+    <secondary__address>test1498568623</secondary__address>
+    <secondary__phone>test-1360802829</secondary__phone>
+    <birthyear>test565762562</birthyear>
+  </contact>
+  
+</list>
